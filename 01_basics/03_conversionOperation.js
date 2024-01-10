@@ -33,3 +33,36 @@ let someNumber = 60
 let numIntoStr = String(someNumber)
 console.log(numIntoStr)
 // console.log(typeof numIntoStr)
+
+
+//  ******************** operations ********************
+let value = 33
+let negvalue = -value
+// console.log(negvalue)
+
+//basic maths operation
+/*
+console.log(2+2)
+console.log(2*2)
+console.log(2-2)
+console.log(2**3)
+console.log(2/3)
+console.log(2%3)
+*/
+
+let str1 = "Rakholiya"
+let str2 = "Jay"
+
+let str3 = str1 + " " + str2
+console.log(str3)
+
+//Basic conversion:- because we see the result if the first digit is in string it will convert all in the string if it is in the number that time it convert first number then concat with the string
+console.log("1" + 2)
+console.log(1 + "2")
+console.log("1" + 2 + 2)
+console.log(1 + 2 + "2")
+
+//------special type conversion(tricky conversion)------
+
+console.log(true)
+console.log(+true)
