@@ -22,25 +22,25 @@ const Jsuser = {
 //How to access the key of the object
 
 // 1st type 
-//console.log(Jsuser.location)
+console.log(Jsuser.location)
 //2nd way
-//console.log(Jsuser["lastLoginDay"])//we use string on the location because the key of the object it take the string behind the case
-//console.log(Jsuser["fullname"])
+console.log(Jsuser["lastLoginDay"])//we use string on the location because the key of the object it take the string behind the case
+console.log(Jsuser["fullname"])
 
 // symbol add in the object and print them 
-//console.log(Jsuser[mysym])
+console.log(Jsuser[mysym])
 
 
 //change the value of the key of the object
 
 Jsuser.email = "Admin@dmail.com"
-//console.log(Jsuser.email)
+console.log(Jsuser.email)
 
 //how to lock the obj or any value of the particular key so any person can't change the value of obj or any value of key of in the object
 
-//Object.freeze(Jsuser)
+Object.freeze(Jsuser)
 Jsuser.email = "Ishagober@gmail.com"
-//console.log(Jsuser)
+console.log(Jsuser)
 
 
 // function use in object 
