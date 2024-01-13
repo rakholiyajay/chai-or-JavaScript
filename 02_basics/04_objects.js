@@ -83,3 +83,23 @@ console.log(tinderUser2)
 
  //ask the object this value is present on your object or not the result is in comes in the boolean 
  console.log(tinderUser2.hasOwnProperty('isLoggedIn'))
+
+
+ //**************Object De-structuring***********************/
+ 
+ const course = {
+    coursename: "Js-in-hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+ }
+
+//  simple syntex to access the value 
+// method 1
+
+console.log(course.price)//this method is simple but when we use the  2 or more than 2 value so then how many time we write a course.Keyname that why we use 2nd method this method is not wrong but for code increase the code visibility is increase
+
+const {courseInstructor} = course
+console.log(courseInstructor)
+//if you think the courseInstructor is the big name so we can define the own name 
+const {coursename: cname} = course //we define we use the cname at the place of coursename
+console.log(cname)
