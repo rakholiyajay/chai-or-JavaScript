@@ -1,7 +1,7 @@
 // for Each loop  doesn't return any type of values 
 //if we try to return the value by storing the for each in the variable
 
-/*
+
 const coading = ["Js", "ruby", "java", "python", "cpp"]
 
 const value = coading.forEach( (item) => {
@@ -10,7 +10,7 @@ const value = coading.forEach( (item) => {
 } )
 
 console.log("value:-", value)//for Each loop doesn't return the values 
-*/
+
 
 // *******Filter operation *********
 // filter operation is just like an for each it also take the callback function but they retun value 
@@ -19,9 +19,9 @@ const myNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 // arrow function methods 
 //1:- when we use this method that time we use the return keyword
-//  const newNums = myNum.filter( (num) => {
-//     return num > 4
-//  })
+  const newNums = myNum.filter( (num) => {
+     return num > 4
+  })
 //2:-
 // const newNums = myNum.filter( (num) => (num > 4) );
 //3:-
