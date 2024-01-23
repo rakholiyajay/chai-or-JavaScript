@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bg-color{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    //console.log("parent",parent)
+    //console.log(parent.children)
+    //console.log(parent.children[1])
+    //console.log(parent.children[1].innerHTML)
+
+    // apply the for loop because 
+    // for (let i = 0; i < parent.children.length; i++) {
+    //      console.table(parent.children[i].innerHTML);
+    // }
+
+    // add the color 
+    parent.children[1].style.color = "orange"
+
+    // firstElementChild property 
+    //console.log("firstElementChild:-",parent.firstElementChild)//it indicate and get the whold first element same as for last also
+    //console.log("lastElementChild", parent.lastElementChild)
+
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne)
+    // console.log(dayOne.parentElement)//it show the paren of the particular selector
+   // console.log(dayOne.nextElementSibling)//it show the brother of the particular element meand we we choose monday then the sibling in the tuesday
+
+   console.log("Nodes", parent.childNodes)
+</script>
+</html>
