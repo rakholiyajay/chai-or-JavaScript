@@ -80,3 +80,23 @@ form.addEventListener('submit', function (event) {
 });
 
 ```
+
+## Project 3 Solution
+
+```javascript
+// 1st way
+// const clockid = document.getElementById('clock')
+
+// 2nd way
+const clock = document.querySelector('#clock');
+
+//setInterval method is said you give me one method and also said how much time in gap i can update or refresh the function
+setInterval(function () {
+  //Date
+  let date = new Date();
+  // console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+
+```
