@@ -36,3 +36,32 @@ buttons.forEach(function (button) {
 
 
 ```
+
+## Project 2 Solution
+
+```javascript
+const form = document.querySelector('form');
+//if i get the value outside the submit button function then when the time page load the height and weight value automatically set the empty because anyone doesn't give any values
+const height = parseInt(document.querySelector('#height').value);
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+
+  // we also get the result we doesn't want value so we dont use the .value and also it is an only element so we didn't use the parseInt
+  const results = document.querySelector('#results');
+
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please give a Valid Height ${height}`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please give a Valid Weight ${weight}`;
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    //display in result
+    results.innerHTML = `<span>${bmi}<span/>`;
+  }
+});
+
+```
