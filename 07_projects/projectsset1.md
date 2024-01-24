@@ -100,3 +100,26 @@ setInterval(function () {
 
 
 ```
+
+## project 3 my customized code
+
+### (also changes in the html file)
+
+```javascript
+const clock = document.querySelector('#clock');
+
+setInterval(function () {
+  const time = new Date();
+  // console.log(date.toLocaleDateString());
+
+  clock.innerHTML = time.toLocaleTimeString();
+}, 1000);
+
+const date = document.querySelector('#date');
+
+setInterval(function () {
+  const date2 = new Date();
+  date.innerHTML = date2.toLocaleDateString();
+}, 1000);
+
+```
