@@ -59,8 +59,23 @@ form.addEventListener('submit', function (event) {
     results.innerHTML = `Please give a Valid Weight ${weight}`;
   } else {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
     //display in result
     results.innerHTML = `<span>${bmi}<span/>`;
+
+   //condition that we display the message thay you weight indicate the message
+    if (bmi <= 18.6) {
+      results.innerHTML += '<br>Under Weight';
+      results.style.color = 'purple';
+    } else if (bmi > 18.6 && bmi <= 24.9) {
+      results.innerHTML += '<br>Your weight is normal';
+      results.style.color = 'blue';
+    } else {
+      results.innerHTML +=
+        '<br>Your weight is too high, please start exercising';
+      results.style.color = 'black';
+    }
+
   }
 });
 
