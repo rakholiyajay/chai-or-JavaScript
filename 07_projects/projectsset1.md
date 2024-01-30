@@ -123,3 +123,110 @@ setInterval(function () {
 }, 1000);
 
 ```
+
+## Project 4 Solution
+
+```javascript
+let randomNumber = parseInt(Math.random() * 100 + 1);
+
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+
+const lowOrHigh = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+let prevGuess = [];
+let numGuess = 1;
+
+let playGames = true;
+
+if (playGames) {
+  submit.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const guess = parseInt(userInput.value);
+    console.log(guess);
+    validateGuess(guess);
+  });
+}
+
+//validate if the user is allowed only number in the value and the value is not greater than the 100 because the min value is 1 or max value is the 100 all the validation is in this particular function
+function validateGuess(guess) {
+  if (isNaN(guess)) {
+    alert('Please Enter An Valid Number');
+  } else if (guess < 1) {
+    alert('Please Enter An Number more than 1');
+  } else if (guess > 100) {
+    alert('Please Enter An Number less than 100');
+  } else {
+    prevGuess.push(guess);
+    //check the your try is finish if the try will be finish so then you end the game
+    if (numGuess === 11) {
+      cleanUpGuess(guess);
+      displayMessage(`Game Over. Random Number was ${randomNumber}`);
+      endGame();
+    } else {
+      cleanUpGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+//by the use of this function we show the message that your value is less than or greater then max or min value
+function checkGuess(guess) {
+  if (guess === randomNumber) {
+    displayMessage(`Congratulation Your Guess Is Correct`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage(`Your Guessed Value id Tooo Low`);
+  } else if (guess > randomNumber) {
+    displayMessage(`Your Guessed Value id Tooo High`);
+  }
+}
+
+//all other work is done in this function like display the guess value
+function cleanUpGuess(guess) {
+  //clean up the value (Cleanup method)
+  userInput.value = '';
+  guessSlot.innerHTML += `${guess},`;
+  numGuess++;
+  remaining.innerHTML = `${11 - numGuess}`;
+}
+
+//this function is direcrtly with the dom like display method
+function displayMessage(message) {
+  lowOrHigh.innerHTML = `<h2>${message}<h2/>`;
+}
+
+//To end a game
+function endGame() {
+  userInput.innerHTML = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">Start New Game<h2/>`;
+  startOver.appendChild(p);
+  playGames = false;
+  newGame();
+}
+
+//To start a new game
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', function (event) {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+    guessSlot.innerHTML = '';
+    remaining.innerHTML = `${11 - numGuess}`;
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(p);
+    playGames = true;
+  });
+}
+
+```
