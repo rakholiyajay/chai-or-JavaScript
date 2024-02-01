@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai or Javascript</h1>
+    <button id="start">Start</button><br/>
+    <button id="stop" style="margin-top: 10px;">Stop</button>
+</body>
+<script>
+    //**************setInterval or clearInterval **************
+     const sayDate = function(){
+        //console.log("Rakholiya Jay", Date.now())
+     }
+     setInterval(sayDate, 2000);
+     
+     //  pass the parameter in the setTimeIntervel 
+     
+     let clearInt;
+
+     const sayDate2 = function(str){
+        console.log(str, Date.now())
+     }
+
+      document.querySelector('#start').addEventListener('click', function(){
+           clearInt = setInterval(sayDate2, 2000, "Rakholiya Jay");
+          console.log("time interval is run")
+      })
+
+      
+
+     //stop this because we use the clearInterval method to stopr this
+     
+     document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(clearInt)
+        console.log("Stoped the printing")
+     })
+    
+
+</script>
+</html>

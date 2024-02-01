@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //**************setTimeOut or clearTimeout **************
+
+    //setTimeout is the method they tell give me given time and then i can print your work 1 time
+    setTimeout(function(){
+        console.log("Rakholiya Jay")
+    }, 2000)
+
+    
+    // give variable reference in  the setTimeout method
+    const sayMyName2 = function(){
+        console.log("Rakholiya Jay 2")
+    }
+    setTimeout(sayMyName2, 3000)
+    
+    //clearTimeOut is the function and we can also give the reference or variable which set time out we can stop 
+
+    // changing the name of the body> h1
+    const changeName = function(){
+        document.querySelector('h1').innerHTML = "This is the best Yourtube Series"
+    }
+
+    const changeMe = setTimeout(changeName, 3000)
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("Stoped the changing the h1 by press the stop button")
+    })
+
+    
+</script>
+</html>
