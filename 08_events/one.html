@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Html Events</title>
 </head>
-<body>
+<body style="background-color: #414141; color: aliceblue;">
     <h2>Amazing image</h2>
-    <div >
+    <div>
         <ul id="images">
             <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
@@ -18,4 +18,117 @@
         </ul>
    </div>
 </body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("Rakholiya Jay had Clicked ib Owl photos")
+    // }
+    
+    //use the attachEvent method 
+    //jQuery - onEventListener
+
+    // best approach 
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log(e)
+        // *****methods*****
+        /*
+        console.log("Type:",e.type)
+        console.log("TimeStamp:",e.timeStamp)
+        console.log("defaultPrevented:",e.defaultPrevented)
+        console.log("target:",e.target)
+        console.log("toElement:",e.toElement)
+        console.log("srcElement:",e.srcElement)
+        console.log("currentTarget:",e.currentTarget)
+        console.log(e.clientX)
+        console.log(e.clientY)
+        console.log(e.screenX)
+        console.log(e.screenY)
+        */
+    }, false)
+    // need to know this method we put dor after the event 
+    /*
+     ->type:- know the type of the event like this is the click event or other event
+
+     ->timeStamp:- when any person click or run any thing that they provide the exact timestamp to click or run that function
+
+     ->preventDefault:- this method means we change the behavior of any things or a function. we stop the defaul behavior of any things means when we fill the form and click to the submit button that time we also stop their submit default behavior that time we use this type of the method
+     ->target:- this method is use to target an particular thing of that main thing means (Which target the img will be occured)
+     ->toElement:- 
+     ->srcElement:-
+     ->currentTarget:-
+     ****for interview perspective****
+     ->client position related(clientX, clientY, screenX, screeny)
+     ****to check which key is pressed so we can use the key method means this is particular key is pressedn or not ****
+     ->altkey, ctrlkey, shiftkey, keyCode
+     */
+
+
+
+    
+    //********Event Propogation**********
+    // there are two method to use the eventpropogation
+    //1.event Bubling : means it goes downward to upward menas img>li>Ul 
+
+    // it means when we click to the owl first they print "owl clicked" and then they click "Clicked inside the ul" because they goes to (Bottom to top) 
+
+        // example
+        /*
+        document.getElementById('images').addEventListener('click', function(e){
+           console.log("Clicked inside the ul")
+        }, false)
+
+        document.getElementById('owl').addEventListener('click', function(e){
+           console.log("owl clicked")
+           e.stopPropagation()
+        }, false)
+        */
+        
+
+        // stopPropagation method is used to that we only need that function we dont need to propogate to the upper event that time this metthod is the use only we apply
+        
+        
+        //2.event capturing we use the true means they goes Top to bottom Ul>LI>Img
+        
+        // example
+        
+        // it means when we click to the owl first they print  "Clicked inside the ul" and then they click "owl clicked" because they goes to (Top to Bottom) 
+
+        /*
+        document.getElementById('images').addEventListener('click', function(e){
+           console.log("Clicked inside the ul")
+        }, true)
+
+        document.getElementById('owl').addEventListener('click', function(e){
+           console.log("owl clicked")
+        }, true)
+        */
+
+
+        //**********defaultPrevented Method **********()changing the behavior og the google
+        document.getElementById('google').addEventListener('click', function(e){
+            console.log("Google clicked")
+           e.preventDefault()
+        },false)
+
+
+     //********Projects secnario menas when we click to the any images that time they will be dissapear*********
+    
+     document.querySelector('#images').addEventListener('click', function(e){
+        // many times we select the target parent node 
+        // console.log(e.target.parentNode)
+
+        console.log(e.target.tagName)
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+
+        //1st approach to remove that
+        // removeIt.remove()
+        //2nd approach
+        //removeIt.parentNode.removeChild(removeIt)
+     }, false)
+        
+</script>
 </html>
