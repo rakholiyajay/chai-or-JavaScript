@@ -100,7 +100,7 @@ getAllUsers()
 */
 //same upper method of async await with the use of .then .catch method
 
-fetch('https://jsonplaceholder.typicode.com/users')
+fetch('https://api.github.com/users/rakholiyajay')
 .then((responce) => {
     return responce.json()
 })
