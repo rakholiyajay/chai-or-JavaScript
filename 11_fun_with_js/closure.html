@@ -1,20 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Closure aur chai</title>
-</head>
-<body>
-    <script>
-        function init() {
-            let name = "mozilla"; 
-            function displayName(){
-                console.log(name); // use variable declared in the parent function
-            }
-            displayName()
+  </head>
+  <body style="background-color: #313131">
+     <button id="orange">Orange</button>
+     <button id="green">Green</button>
+  </body>
+
+  <script>
+    // function init() {
+    //     let name = "mozilla";
+    //         function displayName(){
+    //             console.log(name);
+    //         }
+    //     displayName()
+    // }
+    // init();
+
+    //Lexical scoping :- if we make an function and the another function is made in the other function and the outer variable value access in the inner function they share their information means the child has right to use the value of parent function is known as Lexical scoping
+
+  //   function outer() {
+  //     let username = "jay";
+  //     function inner() {
+  //       console.log("Inner:-", username);
+  //     }
+  //     inner();
+  //   }
+  //   outer();
+  //   console.log("Too Outer:-", username);
+
+  </script>
+  <script>
+    // closure function is just like an lexical scopre but this will return that function and you know that the only function is not return their whole scopre is return 
+    
+
+      //closure Function
+    /*
+    function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+    */
+
+  //   our example
+
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    // if client give the 500 button how many times we copy and paste that why we use the closure method 
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`
+        
+        return function(){
+            document.body.style.backgroundColor = `${color}`
         }
-        init();
-    </script>
-</body>
+    }
+
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+  
+  </script>
 </html>
